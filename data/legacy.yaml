@@ -48,6 +48,21 @@ urls:
 - 'http://forensicswiki.org/wiki/Mac_OS_X_10.9_-_Artifacts_Location#System_Info_Misc.'
 urls: ['https://github.com/libyal/winreg-kb/wiki/System-keys']
 ---
+name: OSXLaunchAgentsPlistFiles
+doc: Launch Agents plist files
+sources:
+- type: FILE
+  attributes:
+    paths:
+      - '/Library/LaunchAgents/*'
+      - '/System/Library/LaunchAgents/*'
+      - '%%users.homedir%%/Library/LaunchAgents/*'
+labels: [System]
+supported_os: [Darwin]
+urls:
+- 'http://forensicswiki.org/wiki/Mac_OS_X'
+- 'http://forensicswiki.org/wiki/Mac_OS_X_10.9_-_Artifacts_Location#Autorun_Locations'
+---
 name: OSXUsers
 doc: Users directories in /Users
 sources:
