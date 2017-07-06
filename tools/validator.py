@@ -133,7 +133,7 @@ class ArtifactDefinitionsValidator(object):
           if source.type_indicator == definitions.TYPE_INDICATOR_FILE:
 
             for path in source.paths:
-              if self._CheckPath(filename, artifact_definition, path):
+              if not self._CheckPath(filename, artifact_definition, path):
                 result = False
 
           elif source.type_indicator == (
