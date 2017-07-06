@@ -71,7 +71,7 @@ class BaseTestCase(unittest.TestCase):
 
 
 class TempDirectory(object):
-  """Class that implements a temporary directory."""
+  """Temporary directory."""
 
   def __init__(self):
     """Initializes a temporary directory."""
