@@ -67,10 +67,10 @@ class ArtifactDefinitionsValidator(object):
               artifact_definition.name, filename))
 
     if key_path.startswith(u'%%CURRENT_CONTROL_SET%%'):
+      result = False
       logging.warning((
           u'Artifact definition: {0} in file: {1} contains Windows '
-          u'Registry key path that starts with '
-          u'%%CURRENT_CONTROL_SET%%. '
+          u'Registry key path that starts with %%CURRENT_CONTROL_SET%%. '
           u'Replace %%CURRENT_CONTROL_SET%% with '
           u'HKEY_LOCAL_MACHINE\\System\\CurrentControlSet').format(
               artifact_definition.name, filename))
