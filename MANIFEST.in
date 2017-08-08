@@ -4,6 +4,8 @@ recursive-include config *
 recursive-include data *
 recursive-include test_data *
 exclude .gitignore
+exclude .travis.yml
+exclude appveyor.yml
 exclude *.pyc
 recursive-include tools *.py
 recursive-exclude tools *.pyc
