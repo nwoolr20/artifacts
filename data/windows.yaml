@@ -1910,7 +1910,9 @@ doc: Windows Search database (Windows.edb).
 sources:
 - type: FILE
   attributes:
-    paths: ['%%environ_allusersappdata%%\Microsoft\Search\Data\Applications\Windows\Windows.edb']
+    paths:
+    - '%%environ_allusersprofile%%\Application Data\Microsoft\Search\Data\Applications\Windows\Windows.edb'
+    - '%%environ_programdata%%\Microsoft\Search\Data\Applications\Windows\Windows.edb'
     separator: '\'
 labels: [Software]
 supported_os: [Windows]

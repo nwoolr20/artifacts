@@ -14,8 +14,10 @@ sources:
 - type: FILE
   attributes:
     paths:
-    - '%%environ_allusersappdata%%\Microsoft\Microsoft Antimalware\Quarantine\**'
-    - '%%environ_allusersappdata%%\Microsoft\Windows Defender\Quarantine\**'
+    - '%%environ_allusersprofile%%\Application Data\Microsoft\Microsoft Antimalware\Quarantine\**'
+    - '%%environ_allusersprofile%%\Application Data\Microsoft\Windows Defender\Quarantine\**'
+    - '%%environ_programdata%%\Microsoft\Microsoft Antimalware\Quarantine\**'
+    - '%%environ_programdata%%\Microsoft\Windows Defender\Quarantine\**'
     separator: '\'
 supported_os: [Windows]
 labels: [Antivirus]
@@ -49,7 +51,9 @@ sources:
   supported_os: [Darwin]
 - type: FILE
   attributes:
-    paths: ['%%environ_allusersappdata%%\Sophos\Sophos Anti-Virus\Logs\*']
+    paths:
+    - '%%environ_allusersprofile%%\Application Data\Sophos\Sophos Anti-Virus\Logs\*'
+    - '%%environ_programdata%%\Sophos\Sophos Anti-Virus\Logs\*'
     separator: '\'
   supported_os: [Windows]
 supported_os: [Darwin, Windows]
@@ -63,7 +67,9 @@ sources:
   supported_os: [Darwin]
 - type: FILE
   attributes:
-    paths: ['%%environ_allusersappdata%%\Sophos\Sophos Anti-Virus\INFECTED\*']
+    paths:
+    - '%%environ_allusersprofile%%\Application Data\Sophos\Sophos Anti-Virus\INFECTED\*'
+    - '%%environ_programdata%%\Sophos\Sophos Anti-Virus\INFECTED\*'
     separator: '\'
   supported_os: [Windows]
 supported_os: [Darwin, Windows]
@@ -75,7 +81,8 @@ sources:
 - type: FILE
   attributes:
     paths:
-    - '%%environ_allusersappdata%%\Symantec\Symantec Endpoint Protection\*\Data\Logs\*.log'
+    - '%%environ_allusersprofile%%\Application Data\Symantec\Symantec Endpoint Protection\*\Data\Logs\*.log'
+    - '%%environ_programdata%%\Symantec\Symantec Endpoint Protection\*\Data\Logs\*.log'
     - '%%users.localappdata%%\Symantec\Symantec Endpoint Protection\Logs\*.log'
     separator: '\'
   supported_os: [Windows]
@@ -87,7 +94,9 @@ doc: Symantec Anti-Virus Quarantine (Infected) files.
 sources:
 - type: FILE
   attributes:
-    paths: ['%%environ_allusersappdata%%\Symantec\Symantec Endpoint Protection\**5\*.vbn']
+    paths:
+    - '%%environ_allusersprofile%%\Application Data\Symantec\Symantec Endpoint Protection\**5.vbn'
+    - '%%environ_programdata%%\Symantec\Symantec Endpoint Protection\**5.vbn'
     separator: '\'
   supported_os: [Windows]
 supported_os: [Windows]
