@@ -426,23 +426,6 @@ class ArtifactDefinitionsValidator(object):
     self._artifact_registry_key_paths.update(source.keys)
     return result
 
-  def CheckDirectory(self, path):
-    """Validates the artifacts definition in a specific directory.
-
-    Args:
-      path (str): path of the directory containing the artifacts definition
-          files.
-
-    Returns:
-      bool: True if the file contains valid artifacts definitions.
-    """
-    for filename in glob.glob(os.path.join(path, '*.yaml')):
-      result = self.CheckFile(filename)
-      if not result:
-        break
-
-    return result
-
   def CheckFile(self, filename):
     """Validates the artifacts definition in a specific file.
 
@@ -567,10 +550,13 @@ def Main():
   validator = ArtifactDefinitionsValidator()
 
   if os.path.isdir(options.definitions):
-    print('Validating definitions in: {0:s}/*.yaml'.format(options.definitions))
-    result = validator.CheckDirectory(options.definitions)
+    result = True
+    for filename in glob.glob(os.path.join(options.definitions, '*.yaml')):
+      print('Validating definitions in: {0:s}'.format(filename))
+      if not validator.CheckFile(filename):
+        result = False
 
-  elif os.path.isfile(options.definitions):
+  else:
     print('Validating definitions in: {0:s}'.format(options.definitions))
     result = validator.CheckFile(options.definitions)
 
